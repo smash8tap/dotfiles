@@ -116,7 +116,8 @@ alias scan='if ! [ -d ./nmap ]; then mkdir nmap; echo "**** Directory to save nm
 alias xclip='xclip -sel clip'
 alias p_theme='~/.config/polybar/launch.sh'
 # Aliases for CTFs
-alias getip='ip a | grep tun0 | grep "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d '\n' | xclip' 
+alias nc='rlwrap nc'
+alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'
 alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php .'
 alias getle='cp /usr/share/linenum/LinEnum.sh .'
 alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'

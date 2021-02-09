@@ -106,19 +106,22 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# General Aliases 
 alias ls='lsd'
 alias ip='ip -c=always'
 alias vim='nvim'
 alias cat='bat'
 alias tmp='cd $(mktemp -d)'
-alias scan='if ! [ -d ./nmap ]; then mkdir nmap; echo "**** Directory to save nmap scan created (nmap)****";echo "Starting scan with sudo nmap -sC -sS -sV -oA nmap/inital -vv"; fi;sudo nmap -sC -sS -sV -oA nmap/inital -vv'
+weather() { curl wttr.in/"$1" }
+# alias scan='if ! [ -d ./nmap ]; then mkdir nmap; echo "**** Directory to save nmap scan created (nmap)****";echo "Starting scan with sudo nmap -sC -sS -sV -oA nmap/inital -vv"; fi;sudo nmap -sC -sS -sV -oA nmap/inital -v
+scan() { if ! [ -d ./nmap ]; then mkdir nmap; echo "[+]**** Directory to save nmap-scan created (nmap)****";echo "[+]Starting scan with sudo rustscan --ulimit 65000 -b 65535 -a $1 -- -sC -sS -sV -oA nmap/inital -vv"; fi;sudo rustscan --ulimit 65000 -b 65535 -a "$1" -- -sC -sS -sV -oA nmap/inital; }
 alias xclip='xclip -sel clip'
 alias p_theme='~/.config/polybar/launch.sh'
 # Aliases for CTFs
+shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }
 alias nc='rlwrap nc'
 alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'
-alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php .'
+alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
 alias getle='cp /usr/share/linenum/LinEnum.sh .'
 alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -127,7 +130,7 @@ alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
 [[ -s /home/smash8tap/.autojump/etc/profile.d/autojump.sh ]] && source /home/smash8tap/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 # Path variable
-export PATH=$PATH:/home/smash8tap/go/bin:/home/smash8tap/.gem/ruby/2.7.0/bin
+export PATH=$PATH:/home/smash8tap/.local/bin:/home/smash8tap/go/bin:/home/smash8tap/.gem/ruby/2.7.0/bin
 
 
 

@@ -106,6 +106,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 # General Aliases 
 alias ls='lsd'
 alias ip='ip -c=always'
@@ -117,6 +118,8 @@ weather() { curl wttr.in/"$1" }
 scan() { if ! [ -d ./nmap ]; then mkdir nmap; echo "[+]**** Directory to save nmap-scan created (nmap)****";echo "[+]Starting scan with sudo rustscan --ulimit 65000 -b 65535 -a $1 -- -sC -sS -sV -oA nmap/inital -vv"; fi;sudo rustscan --ulimit 65000 -b 65535 -a "$1" -- -sC -sS -sV -oA nmap/inital; }
 alias xclip='xclip -sel clip'
 alias p_theme='~/.config/polybar/launch.sh'
+alias enum4linux='enum4linux-ng'
+
 # Aliases for CTFs
 shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }
 alias nc='rlwrap nc'
@@ -124,6 +127,11 @@ alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" |
 alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
 alias getle='cp /usr/share/linenum/LinEnum.sh .'
 alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
+IP() { echo "$1" > /tmp/ip; export IP=$(cat /tmp/ip);}
+if [ -f /tmp/ip ]; then
+  export IP=$(cat /tmp/ip);
+fi 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # autojump

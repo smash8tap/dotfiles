@@ -112,21 +112,21 @@ alias ls='lsd'
 alias ip='ip -c=always'
 alias vim='nvim'
 alias cat='bat'
-alias tmp='cd $(mktemp -d)'
+alias tmp='cd $(mktemp -d)'          # Makes a temp dir and changes dir into it 
 weather() { curl wttr.in/"$1" }
 # alias scan='if ! [ -d ./nmap ]; then mkdir nmap; echo "**** Directory to save nmap scan created (nmap)****";echo "Starting scan with sudo nmap -sC -sS -sV -oA nmap/inital -vv"; fi;sudo nmap -sC -sS -sV -oA nmap/inital -v
 scan() { if ! [ -d ./nmap ]; then mkdir nmap; echo "[+]**** Directory to save nmap-scan created (nmap)****";echo "[+]Starting scan with sudo rustscan --ulimit 65000 -b 65535 -a $1 -- -sC -sS -sV -oA nmap/inital -vv"; fi;sudo rustscan --ulimit 65000 -b 65535 -a "$1" -- -sC -sS -sV -oA nmap/inital; }
-alias xclip='xclip -sel clip'
+alias xclip='xclip -sel clip'              # Just Pipe the std. output to xclip and it will be saved in your clipboard
 alias p_theme='~/.config/polybar/launch.sh'
-alias enum4linux='enum4linux-ng'
+alias enum4linux='enum4linux-ng'           # Who doesent like next-gen things
 
 # Aliases for CTFs
-shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }
-alias nc='rlwrap nc'
-alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'
-alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
-alias getle='cp /usr/share/linenum/LinEnum.sh .'
-alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
+shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }          # Upgrade the normal netcat shell
+alias nc='rlwrap nc'                                                                    # Have uparrow and down arrow support in your netcat shell
+alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'  # save your tun0 IP to clipboard (and save your box from prying eyes!)
+alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'              # Get php-reverse-shell copied to your current dir
+alias getle='cp /usr/share/linenum/LinEnum.sh .'                                         # Get Linpeas copied to your current dir
+alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'                                   # Get Linenum copied to your current dir
 IP() { echo "$1" > /tmp/ip; export IP=$(cat /tmp/ip);}
 if [ -f /tmp/ip ]; then
   export IP=$(cat /tmp/ip);

@@ -13,6 +13,7 @@ run "polybar mainbar-openbox"
 run "nm-applet"
 run "kmix"
 run 'nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }" '
+run 'setxkbmap -option caps:escape'
 # run "caffeine"
 # run "pamac-tray"
 run "variety"

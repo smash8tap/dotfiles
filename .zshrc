@@ -51,7 +51,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -112,25 +112,31 @@ alias ls='lsd'
 alias ip='ip -c=always'
 alias vim='nvim'
 alias cat='bat'
-alias tmp='cd $(mktemp -d)'          # Makes a temp dir and changes dir into it 
+alias tmp='cd $(mktemp -d)'
 weather() { curl wttr.in/"$1" }
 # alias scan='if ! [ -d ./nmap ]; then mkdir nmap; echo "**** Directory to save nmap scan created (nmap)****";echo "Starting scan with sudo nmap -sC -sS -sV -oA nmap/inital -vv"; fi;sudo nmap -sC -sS -sV -oA nmap/inital -v
-scan() { if ! [ -d ./nmap ]; then mkdir nmap; echo "[+]**** Directory to save nmap-scan created (nmap)****";echo "[+]Starting scan with sudo rustscan --ulimit 65000 -b 65535 -a $1 -- -sC -sS -sV -oA nmap/inital -vv"; fi;sudo rustscan --ulimit 65000 -b 65535 -a "$1" -- -sC -sS -sV -oA nmap/inital; }
-alias xclip='xclip -sel clip'              # Just Pipe the std. output to xclip and it will be saved in your clipboard
+scan() { if ! [ -d ./nmap ]; then mkdir nmap; echo "[+]**** Directory to save nmap-scan created (nmap)****";echo "[+]Starting scan with sudo rustscan --ulimit 65000 -b 65535 -a $1 -- -sC -sS -sV -oA nmap/inital -vv"; fi;sudo rustscan --ulimit 65000 -b 65535 -a "$1" -- -sC -sS -sV -Pn -oA  nmap/inital; }
+alias xclip='xclip -sel clip'
 alias p_theme='~/.config/polybar/launch.sh'
-alias enum4linux='enum4linux-ng'           # Who doesent like next-gen things
+alias enum4linux='enum4linux-ng'
 
 # Aliases for CTFs
-shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }          # Upgrade the normal netcat shell
-alias nc='rlwrap nc'                                                                    # Have uparrow and down arrow support in your netcat shell
-alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'  # save your tun0 IP to clipboard (and save your box from prying eyes!)
-alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'              # Get php-reverse-shell copied to your current dir
-alias getle='cp /usr/share/linenum/LinEnum.sh .'                                         # Get Linpeas copied to your current dir
-alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'                                   # Get Linenum copied to your current dir
+shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }
+# alias nc='rlwrap nc'
+alias srv='python3 -m http.server'
+alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'
+alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
+alias getle='cp /usr/share/linenum/LinEnum.sh .'
+alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
+alias getwp='cp  /usr/share/privilege-escalation-awesome-scripts-suite/winPEAS/winPEASexe/binaries/x86/Release/winPEASx86.exe .'
 IP() { echo "$1" > /tmp/ip; export IP=$(cat /tmp/ip);}
 if [ -f /tmp/ip ]; then
   export IP=$(cat /tmp/ip);
 fi 
+
+# Random Aliases
+alias disp='xrandr --output "DP-0" --auto --output "HDMI-0" --mode 1920x1080 --right-of "DP-0"'
+trans() { sed -i "s/rgba(40, 42, 54, .*)/rgba(40, 42, 54, $1)/g" /home/smash8tap/.config/termite/config; killall -USR1 termite }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -139,7 +145,7 @@ fi
 autoload -U compinit && compinit -u
 # Path variable
 export PATH=$PATH:/home/smash8tap/.local/bin:/home/smash8tap/go/bin:/home/smash8tap/.gem/ruby/2.7.0/bin
-
+export ru="/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt"
 
 
 # Cursor autochange

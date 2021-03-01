@@ -123,7 +123,7 @@ local editorgui         = "atom"
 local filemanager       = "nautilus"
 local mailclient        = "evolution"
 local mediaplayer       = "Spotify"
-local terminal          = "alacritty"
+local terminal          = "termite"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables

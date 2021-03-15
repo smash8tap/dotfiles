@@ -17,7 +17,7 @@ export ZSH="/home/smash8tap/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="nerdfont-complete"
+# POWERLEVEL9K_MODE="nerdfont-complete"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -129,6 +129,7 @@ alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
 alias getle='cp /usr/share/linenum/LinEnum.sh .'
 alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
 alias getwp='cp  /usr/share/privilege-escalation-awesome-scripts-suite/winPEAS/winPEASexe/binaries/x86/Release/winPEASx86.exe .'
+
 IP() { echo "$1" > /tmp/ip; export IP=$(cat /tmp/ip);}
 if [ -f /tmp/ip ]; then
   export IP=$(cat /tmp/ip);
@@ -177,3 +178,5 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
+export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
+export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH

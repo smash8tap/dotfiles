@@ -117,7 +117,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: FiraMono Nerd Font
+    family: "MesloLGS NF"
 
     # The `style` can be specified to pick a specific face.
     # style: Bold
@@ -136,8 +136,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
-    family: FiraMono Nerd Font
-
+    family: "MesloLGS NF"
     # The `style` can be specified to pick a specific face.
     # style: Bold
 
@@ -145,7 +144,7 @@ font:
   italic:
     # Font family
     #
-    # If the italic family is not specified, it will fall back to the
+    #If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     # family: SauceCodePro Nerd Font Mono
     # family: CodeNewRoman Nerd Font
@@ -155,7 +154,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: FiraMono Nerd Font
+    family: "MesloLGS NF"
 
     # The `style` can be specified to pick a specific face.
     # style: Italic
@@ -180,7 +179,7 @@ font:
     # style: Bold Italic
 
   # Point size
-  size: 9.5
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -218,7 +217,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: "0x282c34"
+    background: "#282a34"
     foreground: "#f8f8f2"
 
     # Bright and dim foreground colors
@@ -584,3 +583,4 @@ key_bindings:
   - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
   - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+#

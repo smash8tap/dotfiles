@@ -12,20 +12,18 @@ function run {
 run "polybar mainbar-openbox"
 run "nm-applet"
 run "kmix"
-run 'nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }" '
-run 'setxkbmap -option caps:escape'
+run "vmware-user"
+# run 'nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }" '
 # run "caffeine"
 # run "pamac-tray"
-run "variety"
 # run "xfce4-power-manager"
 # run "blueberry-tray"
 # run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # run "numlockx on"
 # run "volumeicon"
-# run "nitrogen --restore"
+run "nitrogen --restore"
 # run "conky -c $HOME/.config/awesome/system-overview"
 #you can set wallpapers in themes as well
-feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 #run applications from startup
 #run "firefox"
 #run "atom"

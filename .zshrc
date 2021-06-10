@@ -17,7 +17,7 @@ export ZSH="/home/smash8tap/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_MODE="nerdfont-complete"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(themes vi-mode git zsh-autosuggestions zsh-syntax-highlighting archlinux sudo tmux docker colored-man-pages fzf nmap systemd autojump)
+plugins=(web-search themes vi-mode git zsh-autosuggestions zsh-syntax-highlighting archlinux sudo tmux docker colored-man-pages fzf nmap systemd autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,12 +123,15 @@ alias enum4linux='enum4linux-ng'
 # Aliases for CTFs
 shellup() { echo "python3 -c \"import pty;pty.spawn('/bin/bash')\" " | xclip }
 # alias nc='rlwrap nc'
-alias srv='python3 -m http.server'
+alias listener='nc -lvnp 4444'
+alias srv='python3 -m http.server &'
 alias getip='ip a | grep tun0 | grep -oP "inet .*/" | grep -oP "(\d+\.){3}\d+" | tr -d "\n"| xclip'
 alias getrevp='cp /usr/share/webshells/php/php-reverse-shell.php ./rev.php'
 alias getle='cp /usr/share/linenum/LinEnum.sh .'
 alias getlp='cp /usr/share/peass/linPEAS/linpeas.sh .'
 alias getwp='cp  /usr/share/privilege-escalation-awesome-scripts-suite/winPEAS/winPEASexe/binaries/x86/Release/winPEASx86.exe .'
+alias getwinsh='cp /usr/share/windows/nishang/Shells/Invoke-PowerShellTcp.ps1 ./rev.ps1'
+alias pwncat='source /home/smash8tap/opt/pwncat/mpython/bin/activate; pwncat'
 
 IP() { echo "$1" > /tmp/ip; export IP=$(cat /tmp/ip);}
 if [ -f /tmp/ip ]; then
@@ -141,9 +144,11 @@ trans() { sed -i "s/rgba(40, 42, 54, .*)/rgba(40, 42, 54, $1)/g" /home/smash8tap
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # autojump
 [[ -s /home/smash8tap/.autojump/etc/profile.d/autojump.sh ]] && source /home/smash8tap/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
+
 # Path variable
 export PATH=$PATH:/home/smash8tap/.local/bin:/home/smash8tap/go/bin:/home/smash8tap/.gem/ruby/2.7.0/bin
 export ru="/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt"
@@ -180,3 +185,7 @@ bindkey -M viins 'kj' vi-cmd-mode
 
 export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
 export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
+# typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⮝'
+typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
+export TERM=xterm-256color
+# export TERM=tmux-256color
